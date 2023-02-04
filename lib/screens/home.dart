@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../models/user_model.dart';
 import '../services/api_Services.dart';
-
+//In this class we are going to render the data on UI which is coming from the API's.
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -12,6 +12,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+
+  /////////////////////////////////////////////////////////////////////////
   late List<UserModel>? _userModel = [];
   @override
   void initState() {
@@ -23,7 +25,7 @@ class _HomeState extends State<Home> {
     _userModel = (await ApiService().getUsers())!;
     Future.delayed(const Duration(seconds: 1)).then((value) => setState(() {}));
   }
-
+//////////////////////////////////////////////////////////////////////////////
   @override
   Widget build(BuildContext context) {
     return Scaffold(
