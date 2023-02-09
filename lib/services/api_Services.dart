@@ -11,12 +11,15 @@ class ApiService {
       var url = Uri.parse(ApiConstants.baseUrl + ApiConstants.usersEndpoint);
       var response = await http.get(url);
       if (response.statusCode == 200) {
-        List<UserModel> _model = userModelFromJson(response.body);//converting json response into a List<UserModel>
+        List<UserModel> model = userModelFromJson(response.body);//converting json response into a List<UserModel>
         //this method is available in user_Model class
-        return _model;
+        return model;
       }
     } catch (e) {
       log(e.toString());
     }
   }
 }
+/*
+Basically in this file we are returning the object of model class which we have just created using quicktype.io website
+ */
